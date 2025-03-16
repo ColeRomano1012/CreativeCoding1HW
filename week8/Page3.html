@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+<style>
+  input:invalid {
+    border-color: red;
+  }
+
+  input:valid {
+    border-color: green;
+  }
+</style>
+<script>
+    const form = document.getElementById('myForm');
+    const inputs = document.querySelectorAll('input[required]');
+  
+    form.addEventListener('submit', function(event) {
+      inputs.forEach(input => {
+        if (!input.value) {
+          input.classList.add('invalid');
+          event.preventDefault();
+        } else {
+          input.classList.remove('invalid');
+        }
+      });
+    });
+  
+    inputs.forEach(input => {
+      input.addEventListener('input', function() {
+        if (input.value) {
+          input.classList.remove('invalid');
+        }
+      });
+    });
+  </script>
+<Head>Fill out Information</Head>
+<body>
+    <div id="error"></div>
+    <form id="form" action="/" method="GET"
+    <div>
+        <label for="name">Name</label>
+        <Input id="name" name="name" type="text" required
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <Input id="email" name="email" type="text" required 
+    </div>
+    <div class="fl">
+        <input type="checkbox" id="checkbox" required />
+    </div>
+    <div class="agree-txt">
+        <span>I agree to <a href="#">Terms and Conditions</a>.</span>
+    </div>
+    <button type="submit">SUBMIT</button>
+</form>
+</body>
